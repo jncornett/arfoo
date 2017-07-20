@@ -2,19 +2,19 @@ var path = require('path');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
+var SRC_DIR = path.join(__dirname, 'src');
+var BUILD_DIR = path.join(__dirname, 'public');
+
 module.exports = {
-  entry: './src/index.js',
+  entry: path.join(SRC_DIR, 'index.js'),
   output: {
+    path: BUILD_DIR,
     filename: 'bundle.js',
-    path: path.join(__dirname, 'build'),
-    publicPath: '/'
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
-      filename: 'index.html',
-      template: './src/index.html',
-      path: path.join(__dirname, 'build')
+      template: path.join(SRC_DIR, 'index.html')
     })
   ],
   module: {
@@ -36,7 +36,6 @@ module.exports = {
     ]
   },
   devServer: {
-    hot: true,
-    contentBase: path.join(__dirname, 'build')
+    hot: true
   }
 };
