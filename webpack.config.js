@@ -9,7 +9,7 @@ module.exports = {
   entry: path.join(SRC_DIR, 'index.js'),
   output: {
     path: BUILD_DIR,
-    filename: 'bundle.js',
+    filename: 'assets/bundle.js',
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
